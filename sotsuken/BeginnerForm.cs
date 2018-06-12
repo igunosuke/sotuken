@@ -361,6 +361,7 @@ namespace sotsuken
 
             }
         }
+        private int testc;
 
 
     }
