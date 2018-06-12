@@ -146,6 +146,3 @@ C:\Users\user\Desktop\hage0.5.1backup\hage0.5.1\sotsuken\sotsuken\obj\Debug\sots
 C:\Users\user\Desktop\hage0.5.1backup\hage0.5.1\sotsuken\sotsuken\bin\Debug\sotsuken.exe
 C:\Users\user\Desktop\hage0.5.1backup\hage0.5.1\sotsuken\sotsuken\bin\Debug\sotsuken.pdb
 C:\Users\user\Desktop\hage0.5.1backup\hage0.5.1\sotsuken\sotsuken\bin\Debug\System.Management.Automation.dll
-C:\Users\user\Documents\GitHub\sotuken\sotsuken\bin\Debug\sotsuken.exe.config
-C:\Users\user\Documents\GitHub\sotuken\sotsuken\obj\Debug\sotsuken.exe
-C:\Users\user\Documents\GitHub\sotuken\sotsuken\obj\Debug\sotsuken.pdb
