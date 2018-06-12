@@ -25,6 +25,7 @@ namespace sotsuken
                 form.StartPosition = FormStartPosition.CenterScreen;
                 form.ShowDialog();
                 this.Close();
+
             }
         }
 
