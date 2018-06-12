@@ -16,5 +16,15 @@ namespace sotsuken
         {
             InitializeComponent();
         }
+
+        private void Disconnect_off_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cexit_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

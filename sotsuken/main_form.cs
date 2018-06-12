@@ -27,22 +27,34 @@ namespace sotsuken
 
             //configファイル読み込み
             string config = "";
+            bool file_flg = true;
             ArrayList configal = new ArrayList();
-            /*try
+            while (file_flg)
             {
-                using (StreamReader sr = new StreamReader
-                    ("config.txt", Encoding.GetEncoding("Shift_JIS")))
+                try
                 {
-                    while ((config = sr.ReadLine()) != null)
+                    using (StreamReader sr = new StreamReader
+                        ("config.txt", Encoding.GetEncoding("Shift_JIS")))
                     {
-                        configal.Add(config);
+                        while ((config = sr.ReadLine()) != null)
+                        {
+                            configal.Add(config);
+                        }
+                    }
+                    file_flg = false;
+                }
+                catch
+                {
+                    using (System.IO.FileStream hStream = System.IO.File.Create(@"./config.txt"))
+                    {
+                        // 作成時に返される FileStream を利用して閉じる
+                        if (hStream != null)
+                        {
+                            hStream.Close();
+                        }
                     }
                 }
             }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }*/
         }
 
         private void connectbutton_Click(object sender, EventArgs e)
@@ -159,6 +171,13 @@ namespace sotsuken
             }
 
         }
+
+        private void Mconfig_button_Click(object sender, EventArgs e)
+        {
+            ConfigShow();
+        }
+
+
         //ここからメソッド
 
         public void loadVPN()
@@ -314,6 +333,12 @@ namespace sotsuken
 
             }
         }
+        private void ConfigShow()
+        {
+            config f1 = new config();
+            f1.Show();
+
+        }
 
         public void disconnect(string vpn_name)
         {
@@ -325,6 +350,7 @@ namespace sotsuken
         {
             loadVPN();
         }
+
 
     }
 }

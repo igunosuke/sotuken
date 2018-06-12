@@ -29,70 +29,100 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.icon_off = new System.Windows.Forms.CheckBox();
+            this.Disconnect_off = new System.Windows.Forms.CheckBox();
+            this.Create_choice = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.Csave_button = new System.Windows.Forms.Button();
+            this.Cexit_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(54, 32);
+            this.label1.Location = new System.Drawing.Point(35, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 53);
+            this.label1.Size = new System.Drawing.Size(219, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "設定";
             // 
-            // checkBox1
+            // icon_off
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.checkBox1.Location = new System.Drawing.Point(307, 48);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(254, 37);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "アイコンを非表示";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.icon_off.AutoSize = true;
+            this.icon_off.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.icon_off.Location = new System.Drawing.Point(307, 68);
+            this.icon_off.Name = "icon_off";
+            this.icon_off.Size = new System.Drawing.Size(254, 37);
+            this.icon_off.TabIndex = 1;
+            this.icon_off.Text = "アイコンを非表示";
+            this.icon_off.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // Disconnect_off
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.checkBox2.Location = new System.Drawing.Point(307, 164);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(298, 37);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "切断ボタンを非表示";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.Disconnect_off.AutoSize = true;
+            this.Disconnect_off.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Disconnect_off.Location = new System.Drawing.Point(307, 164);
+            this.Disconnect_off.Name = "Disconnect_off";
+            this.Disconnect_off.Size = new System.Drawing.Size(298, 37);
+            this.Disconnect_off.TabIndex = 1;
+            this.Disconnect_off.Text = "切断ボタンを非表示";
+            this.Disconnect_off.UseVisualStyleBackColor = true;
+            this.Disconnect_off.CheckedChanged += new System.EventHandler(this.Disconnect_off_CheckedChanged);
             // 
-            // comboBox1
+            // Create_choice
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(143, 280);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 2;
+            this.Create_choice.FormattingEnabled = true;
+            this.Create_choice.Items.AddRange(new object[] {
+            "標準",
+            "らくらく作成",
+            "カスタム作成"});
+            this.Create_choice.Location = new System.Drawing.Point(188, 273);
+            this.Create_choice.Name = "Create_choice";
+            this.Create_choice.Size = new System.Drawing.Size(121, 26);
+            this.Create_choice.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(307, 280);
+            this.label2.Location = new System.Drawing.Point(332, 273);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(305, 33);
             this.label2.TabIndex = 3;
             this.label2.Text = "作成を押した際の動作";
+            // 
+            // Csave_button
+            // 
+            this.Csave_button.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Csave_button.Location = new System.Drawing.Point(134, 390);
+            this.Csave_button.Name = "Csave_button";
+            this.Csave_button.Size = new System.Drawing.Size(155, 71);
+            this.Csave_button.TabIndex = 4;
+            this.Csave_button.Text = "保存";
+            this.Csave_button.UseVisualStyleBackColor = true;
+            // 
+            // Cexit_button
+            // 
+            this.Cexit_button.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Cexit_button.Location = new System.Drawing.Point(462, 390);
+            this.Cexit_button.Name = "Cexit_button";
+            this.Cexit_button.Size = new System.Drawing.Size(155, 71);
+            this.Cexit_button.TabIndex = 5;
+            this.Cexit_button.Text = "終了";
+            this.Cexit_button.UseVisualStyleBackColor = true;
+            this.Cexit_button.Click += new System.EventHandler(this.Cexit_button_Click);
             // 
             // config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(722, 565);
+            this.Controls.Add(this.Cexit_button);
+            this.Controls.Add(this.Csave_button);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.Create_choice);
+            this.Controls.Add(this.Disconnect_off);
+            this.Controls.Add(this.icon_off);
             this.Controls.Add(this.label1);
             this.Name = "config";
             this.Text = "config";
@@ -104,9 +134,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox icon_off;
+        private System.Windows.Forms.CheckBox Disconnect_off;
+        private System.Windows.Forms.ComboBox Create_choice;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Csave_button;
+        private System.Windows.Forms.Button Cexit_button;
     }
 }
