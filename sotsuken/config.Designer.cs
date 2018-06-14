@@ -56,6 +56,7 @@
             this.icon_off.TabIndex = 1;
             this.icon_off.Text = "アイコンを非表示";
             this.icon_off.UseVisualStyleBackColor = true;
+            this.icon_off.CheckedChanged += new System.EventHandler(this.icon_off_CheckedChanged);
             // 
             // Disconnect_off
             // 
@@ -100,6 +101,7 @@
             this.Csave_button.TabIndex = 4;
             this.Csave_button.Text = "保存";
             this.Csave_button.UseVisualStyleBackColor = true;
+            this.Csave_button.Click += new System.EventHandler(this.Csave_button_Click);
             // 
             // Cexit_button
             // 

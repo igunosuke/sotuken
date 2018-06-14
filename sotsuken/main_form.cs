@@ -17,9 +17,11 @@ namespace sotsuken
             InitializeComponent();
         }
 
+
         //変数宣言部
         List<List<string>> infolist = new List<List<string>>();
         string string_tmp;//都合よく使う存在
+        public ArrayList configal = new ArrayList();//config管理
 
         private void vpn_Load(object sender, EventArgs e)
         {
@@ -28,7 +30,6 @@ namespace sotsuken
             //configファイル読み込み
             string config = "";
             bool file_flg = true;
-            ArrayList configal = new ArrayList();
             while (file_flg)
             {
                 try
@@ -47,16 +48,33 @@ namespace sotsuken
                 {
                     using (System.IO.FileStream hStream = System.IO.File.Create(@"./config.txt"))
                     {
-                        // 作成時に返される FileStream を利用して閉じる
                         if (hStream != null)
                         {
                             hStream.Close();
                         }
+                        // 作成時に返される FileStream を利用して閉じる
+
                     }
+
+                    fileSave();
                 }
             }
         }
 
+        public void fileSave()
+        {
+            //作成して書き込み
+            StreamWriter writer = new StreamWriter(@"./config.txt", false);
+            for (int i = 0; i < 3; i++)
+            {
+                writer.Write("0\r\n");
+                configal.Add  ("0\r\n");
+            }
+            if (writer != null)
+            {
+                writer.Close();
+            }
+        }
         private void connectbutton_Click(object sender, EventArgs e)
         {
             int tmp = vpnlist.SelectedIndex;
@@ -76,8 +94,11 @@ namespace sotsuken
                 }
                 if (infolist[tmp][3] != "")
                 {
-                    string_tmp = vpnlist.SelectedItem.ToString();
-                    IconShow(1, string_tmp);
+                    if (configal[0] == "0")
+                    {
+                        string_tmp = vpnlist.SelectedItem.ToString();
+                        IconShow(1, string_tmp);
+                    }
                 }
                 loadVPN();
             }
@@ -175,6 +196,7 @@ namespace sotsuken
         private void Mconfig_button_Click(object sender, EventArgs e)
         {
             ConfigShow();
+
         }
 
 
@@ -329,14 +351,13 @@ namespace sotsuken
                 this.WindowState = FormWindowState.Minimized;
                 f1.Show();
 
-
-
             }
         }
         private void ConfigShow()
         {
-            config f1 = new config();
+            config f1 = new config(this);
             f1.Show();
+            
 
         }
 
