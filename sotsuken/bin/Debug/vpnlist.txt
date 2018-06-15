@@ -3,15 +3,15 @@
 Name                  : sotuken
 ServerAddress         : 172.16.1.10
 AllUserConnection     : False
-Guid                  : {5C9574D4-3D12-48A0-AAE6-CE3AB5EEB1F6}
+Guid                  : {5A9BB561-1F90-4F74-96BC-7BA5EE14D3F0}
 TunnelType            : L2tp
-AuthenticationMethod  : {Chap, MsChapv2}
+AuthenticationMethod  : {Chap}
 EncryptionLevel       : Optional
 L2tpIPsecAuth         : Psk
 UseWinlogonCredential : False
 EapConfigXmlStream    : 
 ConnectionStatus      : Disconnected
-RememberCredential    : True
+RememberCredential    : False
 SplitTunneling        : False
 DnsSuffix             : 
 IdleDisconnectSeconds : 0
