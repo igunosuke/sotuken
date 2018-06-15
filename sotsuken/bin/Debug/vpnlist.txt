@@ -16,5 +16,21 @@ SplitTunneling        : False
 DnsSuffix             : 
 IdleDisconnectSeconds : 0
 
+Name                  : 1
+ServerAddress         : 1
+AllUserConnection     : False
+Guid                  : {B359F66A-5B25-46F5-AB9B-C29B72EC4DD1}
+TunnelType            : Automatic
+AuthenticationMethod  : {Chap}
+EncryptionLevel       : Optional
+L2tpIPsecAuth         : Certificate
+UseWinlogonCredential : False
+EapConfigXmlStream    : 
+ConnectionStatus      : Disconnected
+RememberCredential    : False
+SplitTunneling        : False
+DnsSuffix             : 
+IdleDisconnectSeconds : 0
+
 
 

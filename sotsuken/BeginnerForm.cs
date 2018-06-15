@@ -13,11 +13,13 @@ namespace sotsuken
     public partial class BeginnerForm : Form
     {
         //変数宣言部
-        public static string name = "";
-        public static string Ip = "";
-        public static string Key = "";
-        public static string tunnelType = "";
-        public static string tunnelTypeStr = "";
+        private static string name = "";
+        private static string Ip = "";
+        private static string Key = "";
+        private static string tunnelType = "";
+        private static string tunnelTypeStr = "";
+        private static string username = "";
+        private static string userpass = "";
         private static int page = 0;
         private static string check_flg = "false";
         public static string addOrSet;
@@ -45,7 +47,7 @@ namespace sotsuken
             config_ctr = new BConfig();
             end_ctr = new set_end();
             user_ctr = new UserSetUp();
-            check_ctr = new check();
+            check_ctr = new check(this);
 
 
             //panelに追加
@@ -136,6 +138,7 @@ namespace sotsuken
                 case 4://4ページ目
                     PageMove(5);
                     break;
+
             }  
         }
 
@@ -147,7 +150,12 @@ namespace sotsuken
         private void Cancel_button_Click(object sender, EventArgs e)
         {
             page = GetPage();
-            if (page == 4) {
+            if (page == 5) {
+                string[] date = new string[2];
+                date = user_ctr.UserGet();
+                name = date[0];
+                
+
             }
             else
             {
@@ -155,8 +163,9 @@ namespace sotsuken
             }
         }
 
-        private void field_panel_VisibleChanged(object sender, EventArgs e)
+        private void field_panel_Paint(object sender, PaintEventArgs e)
         {
+            Reprint(GetPage());
         }
 
         //メソッド↓
@@ -195,22 +204,6 @@ namespace sotsuken
 
         }
 
-
-        /// <summary>
-        /// check用めそっど
-        /// </summary>
-        /// <param name="tmp">戻る:1,次へ:0</param>
-        public void CheckCtr(int tmp) {
-            switch (tmp)
-            {
-                case 0:
-                    PageMove(4);
-                    break;
-                case 1:
-                    PageMove(2);
-                    break;
-            }
-        }
 
      
         /// <summary>
@@ -409,5 +402,6 @@ namespace sotsuken
             }
 
         }
+
     }
 }

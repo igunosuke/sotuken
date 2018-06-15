@@ -32,7 +32,7 @@ namespace sotsuken
         }
 
         /// <summary>
-        ///ユーザー情報を返すメソッド
+        ///ユーザー情報を返すメソッド.0:ユーザー名 1:パスワード
         /// </summary>
         /// <returns>0:ユーザー名 1:パスワード</returns>
         public string[] UserGet()
