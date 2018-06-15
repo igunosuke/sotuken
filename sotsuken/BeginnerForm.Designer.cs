@@ -92,8 +92,8 @@
         #endregion
 
         public System.Windows.Forms.Panel field_panel;
-        private System.Windows.Forms.Button Back_button;
-        private System.Windows.Forms.Button Next_button;
-        private System.Windows.Forms.Button Cancel_button;
+        public System.Windows.Forms.Button Back_button;
+        public System.Windows.Forms.Button Next_button;
+        public System.Windows.Forms.Button Cancel_button;
     }
 }

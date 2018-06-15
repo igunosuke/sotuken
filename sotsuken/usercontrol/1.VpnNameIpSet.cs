@@ -12,8 +12,8 @@ namespace sotsuken
 {
     public partial class VpnNameIPSet : UserControl
     {
-        public string vname="j";
-        public string Ip="j";
+
+        private BeginnerForm b1 = new BeginnerForm();
 
         public VpnNameIPSet()
         {
@@ -32,6 +32,16 @@ namespace sotsuken
             return date;
         }
 
+        private void VpnNameIPSet_VisibleChanged(object sender, EventArgs e)
+        {
+            string[] date = new string[5];
+            date = b1.Getdate();
+            if (date[4] == "true")
+            {
+                ip_textbox.Text = date[0];
+                nametext.Text = date[1];
+            }
+        }
     }
 
 

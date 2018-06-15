@@ -26,7 +26,7 @@ namespace sotsuken
             loadVPN();
 
             //configファイル読み込み
-            string config = "";
+            //string config = "";
             ArrayList configal = new ArrayList();
             /*try
             {
