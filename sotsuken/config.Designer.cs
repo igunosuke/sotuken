@@ -74,7 +74,7 @@
             // 
             this.Create_choice.FormattingEnabled = true;
             this.Create_choice.Items.AddRange(new object[] {
-            "標準",
+            "デフォルト",
             "らくらく作成",
             "カスタム作成"});
             this.Create_choice.Location = new System.Drawing.Point(188, 273);
@@ -128,6 +128,7 @@
             this.Controls.Add(this.label1);
             this.Name = "config";
             this.Text = "config";
+            this.Load += new System.EventHandler(this.config_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -56,19 +56,38 @@ namespace sotsuken
 
                     }
 
-                    fileSave();
+                    //作成して書き込み
+                    StreamWriter writer = new StreamWriter(@"./config.txt", false);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        writer.Write("0\r\n");
+                        configal.Add("0\r\n");
+                    }
+                    if (writer != null)
+                    {
+                        writer.Close();
+                    }
                 }
             }
         }
 
         public void fileSave()
         {
-            //作成して書き込み
+            //書き込み
             StreamWriter writer = new StreamWriter(@"./config.txt", false);
             for (int i = 0; i < 3; i++)
             {
-                writer.Write("0\r\n");
-                configal.Add  ("0\r\n");
+                if (0 <= configal[i].ToString() .IndexOf("\r\n"))
+                {
+                 
+                }
+                else
+                {
+                    configal[i] += "\r\n"; 
+                }
+
+                writer.Write(configal[i].ToString());
+
             }
             if (writer != null)
             {
@@ -94,7 +113,7 @@ namespace sotsuken
                 }
                 if (infolist[tmp][3] != "")
                 {
-                    if (configal[0] == "0")
+                    if (configal[0].ToString() == "0\r\n")
                     {
                         string_tmp = vpnlist.SelectedItem.ToString();
                         IconShow(1, string_tmp);
