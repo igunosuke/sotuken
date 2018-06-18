@@ -12,23 +12,11 @@ namespace sotsuken
 {
     public partial class UserSetUp : UserControl
     {
-        private BeginnerForm b1;
+
 
         public UserSetUp()
         {
             InitializeComponent();
-            b1 = new BeginnerForm();
-        }
-
-        private void compButton_Click(object sender, EventArgs e)
-        {
-            b1.UserSet(true,userText.Text,passText.Text);
-            FindForm().Close();
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            b1.UserSet(false,null,null);
         }
 
         /// <summary>
