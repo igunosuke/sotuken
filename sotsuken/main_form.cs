@@ -7,6 +7,7 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace sotsuken
 {
@@ -113,7 +114,7 @@ namespace sotsuken
                 }
                 if (infolist[tmp][3] != "")
                 {
-                    if (configal[0].ToString() == "0\r\n")
+                    if (Regex.IsMatch(configal[0].ToString(), "0"))
                     {
                         string_tmp = vpnlist.SelectedItem.ToString();
                         IconShow(1, string_tmp);
@@ -164,10 +165,31 @@ namespace sotsuken
 
         private void createbutton_Click_1(object sender, EventArgs e)
         {
-            //何も渡さずにediformを表示
-            Create frm = new Create();
-            frm.StartPosition = FormStartPosition.CenterScreen;
-            frm.ShowDialog();
+            if (Regex.IsMatch(configal[2].ToString(), "1"))
+            {
+                using (var form = new BeginnerForm(null))
+                {
+                    //editForm表示
+                    form.StartPosition = FormStartPosition.CenterScreen;
+                    form.ShowDialog();
+                }
+            }
+            else if (Regex.IsMatch(configal[2].ToString(), "2"))
+            {
+                using (var subForm = new editForm(null))
+                {
+                    //editForm表示
+                    subForm.StartPosition = FormStartPosition.CenterScreen;
+                    subForm.ShowDialog();
+                }
+            }
+            else
+            {
+                //何も渡さずにediformを表示
+                Create frm = new Create();
+                frm.StartPosition = FormStartPosition.CenterScreen;
+                frm.ShowDialog();
+            }
             loadVPN();
         }
 

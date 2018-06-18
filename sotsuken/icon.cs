@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace sotsuken
 {
@@ -86,7 +87,7 @@ namespace sotsuken
 
         private void icon_Load(object sender, EventArgs e)
         {
-            if (vpnFormInstance.configal[1].ToString() == "1\r\n")
+            if (Regex.IsMatch(vpnFormInstance.configal[1].ToString(), "1"))
             {
                 this.Disconnect.Visible = false;
                 Disconnect.Enabled = false;

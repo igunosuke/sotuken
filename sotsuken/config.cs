@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace sotsuken
 {
@@ -49,6 +50,18 @@ namespace sotsuken
 
         private void Csave_button_Click(object sender, EventArgs e)
         {
+            if(Create_choice.Text == "デフォルト")
+            {
+                vpnFormInstance.configal[2] = "0\r\n";
+            }
+            else if(Create_choice.Text == "らくらく作成")
+            {
+                vpnFormInstance.configal[2] = "1\r\n";
+            }
+            else
+            {
+                vpnFormInstance.configal[2] = "2\r\n";
+            }
             vpnFormInstance.fileSave();
         }
 
@@ -79,6 +92,18 @@ namespace sotsuken
             if (vpnFormInstance.configal[1].ToString() == "1\r\n")
             {
                 Disconnect_off.Checked = true;
+            }
+            if (Regex.IsMatch(vpnFormInstance.configal[2].ToString(), "1"))
+            {
+                Create_choice.Text = "らくらく作成";
+            }
+            else if (Regex.IsMatch(vpnFormInstance.configal[2].ToString(), "2"))
+            {
+                Create_choice.Text = "カスタム作成";
+            }
+            else
+            {
+                Create_choice.Text = "デフォルト";
             }
         }
     }
