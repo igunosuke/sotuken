@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace sotsuken
 {
@@ -17,9 +16,9 @@ namespace sotsuken
         {
             InitializeComponent();
         }
+
         public icon(vpnformInstance vpnformInstance)
         {
-            InitializeComponent();
             this.vpnformInstance = vpnformInstance;
         }
 
@@ -84,13 +83,6 @@ namespace sotsuken
             vpn_name = name;
         }
 
-        private void icon_Load(object sender, EventArgs e)
-        {
-            if (Regex.IsMatch(vpnformInstance.configal[1].ToString(), "1"))
-            {
-                this.Disconnect.Visible = false;
-                Disconnect.Enabled = false;
-            }
-        }
+
     }
 }
