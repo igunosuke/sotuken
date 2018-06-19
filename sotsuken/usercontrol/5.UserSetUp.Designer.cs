@@ -28,33 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.compButton = new System.Windows.Forms.Button();
             this.passText = new System.Windows.Forms.TextBox();
             this.userText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(173, 341);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(115, 50);
-            this.cancelButton.TabIndex = 7;
-            this.cancelButton.Text = "キャンセル";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // compButton
-            // 
-            this.compButton.Location = new System.Drawing.Point(380, 341);
-            this.compButton.Name = "compButton";
-            this.compButton.Size = new System.Drawing.Size(110, 50);
-            this.compButton.TabIndex = 8;
-            this.compButton.Text = "完了";
-            this.compButton.UseVisualStyleBackColor = true;
-            this.compButton.Click += new System.EventHandler(this.compButton_Click);
             // 
             // passText
             // 
@@ -97,8 +75,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.compButton);
             this.Controls.Add(this.passText);
             this.Controls.Add(this.userText);
             this.Controls.Add(this.label2);
@@ -111,9 +87,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button compButton;
         private System.Windows.Forms.TextBox passText;
         private System.Windows.Forms.TextBox userText;
         private System.Windows.Forms.Label label2;
