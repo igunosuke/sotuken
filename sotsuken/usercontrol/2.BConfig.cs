@@ -17,7 +17,7 @@ namespace sotsuken
             InitializeComponent();
         }
 
-        private string tunneltype = "";
+        private BeginnerForm b1 = new BeginnerForm();
 
         private void vpnValueBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -28,20 +28,6 @@ namespace sotsuken
             else {
                 KeyTextBox.Enabled = false;
             }
-        }
-
-        private void next_button_Click(object sender, EventArgs e)
-        {
-            BeginnerForm f1 = new BeginnerForm();
-            editForm e1 = new editForm();
-            tunneltype = e1.vpnValueChange((string)vpnValueBox.SelectedItem,KeyTextBox.Text);
-            f1.ConfigNext(true,KeyTextBox.Text,tunneltype);           
-        }
-
-        private void cancel_button_Click(object sender, EventArgs e)
-        {
-            BeginnerForm f1 = new BeginnerForm();
-            f1.ConfigNext(false, null,null);
         }
 
         /// <summary>
@@ -57,5 +43,14 @@ namespace sotsuken
             return date;
         }
 
+        private void BConfig_Load(object sender, EventArgs e)
+        {
+            string[] date = new string[5];
+            date = b1.Getdate();
+            if (date[4] == "true")
+            {
+                KeyTextBox.Text = date[3];
+            }
+        }
     }
 }

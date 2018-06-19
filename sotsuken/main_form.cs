@@ -7,7 +7,6 @@ using System.Management.Automation;
 using System.Management.Automation.Runspaces;
 using System.Collections.ObjectModel;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace sotsuken
 {
@@ -18,83 +17,34 @@ namespace sotsuken
             InitializeComponent();
         }
 
-
         //変数宣言部
         List<List<string>> infolist = new List<List<string>>();
         string string_tmp;//都合よく使う存在
-        public ArrayList configal = new ArrayList();//config管理
 
         private void vpn_Load(object sender, EventArgs e)
         {
             loadVPN();
 
             //configファイル読み込み
-            string config = "";
-            bool file_flg = true;
-            while (file_flg)
+            //string config = "";
+            ArrayList configal = new ArrayList();
+            /*try
             {
-                try
+                using (StreamReader sr = new StreamReader
+                    ("config.txt", Encoding.GetEncoding("Shift_JIS")))
                 {
-                    using (StreamReader sr = new StreamReader
-                        ("config.txt", Encoding.GetEncoding("Shift_JIS")))
+                    while ((config = sr.ReadLine()) != null)
                     {
-                        while ((config = sr.ReadLine()) != null)
-                        {
-                            configal.Add(config);
-                        }
-                    }
-                    file_flg = false;
-                }
-                catch
-                {
-                    using (System.IO.FileStream hStream = System.IO.File.Create(@"./config.txt"))
-                    {
-                        if (hStream != null)
-                        {
-                            hStream.Close();
-                        }
-                        // 作成時に返される FileStream を利用して閉じる
-
-                    }
-
-                    //作成して書き込み
-                    StreamWriter writer = new StreamWriter(@"./config.txt", false);
-                    for (int i = 0; i < 3; i++)
-                    {
-                        writer.Write("0\r\n");
-                        configal.Add("0\r\n");
-                    }
-                    if (writer != null)
-                    {
-                        writer.Close();
+                        configal.Add(config);
                     }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }*/
         }
 
-        public void fileSave()
-        {
-            //書き込み
-            StreamWriter writer = new StreamWriter(@"./config.txt", false);
-            for (int i = 0; i < 3; i++)
-            {
-                if (0 <= configal[i].ToString() .IndexOf("\r\n"))
-                {
-                 
-                }
-                else
-                {
-                    configal[i] += "\r\n"; 
-                }
-
-                writer.Write(configal[i].ToString());
-
-            }
-            if (writer != null)
-            {
-                writer.Close();
-            }
-        }
         private void connectbutton_Click(object sender, EventArgs e)
         {
             int tmp = vpnlist.SelectedIndex;
@@ -114,11 +64,8 @@ namespace sotsuken
                 }
                 if (infolist[tmp][3] != "")
                 {
-                    if (Regex.IsMatch(configal[0].ToString(), "0"))
-                    {
-                        string_tmp = vpnlist.SelectedItem.ToString();
-                        IconShow(1, string_tmp);
-                    }
+                    string_tmp = vpnlist.SelectedItem.ToString();
+                    IconShow(1, string_tmp);
                 }
                 loadVPN();
             }
@@ -165,31 +112,10 @@ namespace sotsuken
 
         private void createbutton_Click_1(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(configal[2].ToString(), "1"))
-            {
-                using (var form = new BeginnerForm(null))
-                {
-                    //editForm表示
-                    form.StartPosition = FormStartPosition.CenterScreen;
-                    form.ShowDialog();
-                }
-            }
-            else if (Regex.IsMatch(configal[2].ToString(), "2"))
-            {
-                using (var subForm = new editForm(null))
-                {
-                    //editForm表示
-                    subForm.StartPosition = FormStartPosition.CenterScreen;
-                    subForm.ShowDialog();
-                }
-            }
-            else
-            {
-                //何も渡さずにediformを表示
-                Create frm = new Create();
-                frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
-            }
+            //何も渡さずにediformを表示
+            Create frm = new Create();
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.ShowDialog();
             loadVPN();
         }
 
@@ -233,14 +159,6 @@ namespace sotsuken
             }
 
         }
-
-        private void Mconfig_button_Click(object sender, EventArgs e)
-        {
-            ConfigShow();
-
-        }
-
-
         //ここからメソッド
 
         public void loadVPN()
@@ -359,7 +277,7 @@ namespace sotsuken
 
                 }
                 if (flg == 0)
-                    MessageBox.Show("成功しました");
+                    MessageBox.Show("コマンドを実行しました");
             }
             catch (Exception ex)
             {
@@ -387,19 +305,14 @@ namespace sotsuken
         {
             if (flg == 1)
             {
-                icon f1 = new icon(this);
+                icon f1 = new icon();
                 f1.GetVpnName(vpn_name);
                 this.WindowState = FormWindowState.Minimized;
                 f1.Show();
 
-            }
-        }
-        private void ConfigShow()
-        {
-            config f1 = new config(this);
-            f1.Show();
-            
 
+
+            }
         }
 
         public void disconnect(string vpn_name)
@@ -412,7 +325,6 @@ namespace sotsuken
         {
             loadVPN();
         }
-
 
     }
 }

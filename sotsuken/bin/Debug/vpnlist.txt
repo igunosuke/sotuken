@@ -1,0 +1,20 @@
+﻿
+
+Name                  : sotu
+ServerAddress         : 172.16.1.10
+AllUserConnection     : False
+Guid                  : {CABB75BD-8733-4BD8-8830-AA40C81C78CC}
+TunnelType            : L2tp
+AuthenticationMethod  : {Chap}
+EncryptionLevel       : Optional
+L2tpIPsecAuth         : Psk
+UseWinlogonCredential : False
+EapConfigXmlStream    : 
+ConnectionStatus      : Disconnected
+RememberCredential    : False
+SplitTunneling        : False
+DnsSuffix             : 
+IdleDisconnectSeconds : 0
+
+
+
