@@ -16,5 +16,21 @@ SplitTunneling        : False
 DnsSuffix             : 
 IdleDisconnectSeconds : 0
 
+Name                  : koha
+ServerAddress         : 1
+AllUserConnection     : False
+Guid                  : {401162C0-AE8D-4674-827C-C7B7C80442E4}
+TunnelType            : Automatic
+AuthenticationMethod  : {Chap}
+EncryptionLevel       : Optional
+L2tpIPsecAuth         : Certificate
+UseWinlogonCredential : False
+EapConfigXmlStream    : 
+ConnectionStatus      : Disconnected
+RememberCredential    : False
+SplitTunneling        : False
+DnsSuffix             : 
+IdleDisconnectSeconds : 0
+
 
 

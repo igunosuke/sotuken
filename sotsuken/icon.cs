@@ -5,22 +5,21 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace sotsuken
 {
     public partial class icon : Form
     {
-        private vpnformInstance vpnFormInstance;
         public icon()
         {
             InitializeComponent();
         }
-
         public icon(vpnformInstance vpnformInstance)
         {
+            InitializeComponent();
             this.vpnformInstance = vpnformInstance;
         }
 
@@ -83,6 +82,15 @@ namespace sotsuken
         public void GetVpnName(string name) 
         {
             vpn_name = name;
+        }
+
+        private void icon_Load(object sender, EventArgs e)
+        {
+            if (Regex.IsMatch(vpnformInstance.configal[1].ToString(), "1"))
+            {
+                this.Disconnect.Visible = false;
+                Disconnect.Enabled = false;
+            }
         }
     }
 }

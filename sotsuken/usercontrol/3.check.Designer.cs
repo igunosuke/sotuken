@@ -46,7 +46,7 @@
             this.VpnNameLabel.Location = new System.Drawing.Point(30, 32);
             this.VpnNameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.VpnNameLabel.Name = "VpnNameLabel";
-            this.VpnNameLabel.Size = new System.Drawing.Size(179, 24);
+            this.VpnNameLabel.Size = new System.Drawing.Size(179, 36);
             this.VpnNameLabel.TabIndex = 4;
             this.VpnNameLabel.Text = "接続名:";
             this.VpnNameLabel.Click += new System.EventHandler(this.VpnNameLabel_Click);
@@ -151,6 +151,8 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Label VpnNameLabel;
         private System.Windows.Forms.Label IpLabel;
         private System.Windows.Forms.Label ConfigLabel;
         private System.Windows.Forms.Label Keylabel;
@@ -158,6 +160,5 @@
         private System.Windows.Forms.Label Ip;
         private System.Windows.Forms.Label Config;
         private System.Windows.Forms.Label Key;
-        private System.Windows.Forms.Label VpnNameLabel;
     }
 }

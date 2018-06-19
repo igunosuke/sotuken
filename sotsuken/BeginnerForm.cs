@@ -65,7 +65,7 @@ namespace sotsuken
         private void Back_button_Click(object sender, EventArgs e)
         {
             page = GetPage();
-            Reprint(page-1);
+            Reprint(page - 1);
             switch (page)
             {
                 case 0:
@@ -74,7 +74,7 @@ namespace sotsuken
                 case 1:
                     PageMove(0);
                     break;
-                case 2:                   
+                case 2:
                     PageMove(1);
                     break;
                 case 3:
@@ -94,7 +94,7 @@ namespace sotsuken
         private void Next_button_Click(object sender, EventArgs e)
         {
             page = GetPage();
-            Reprint(page+1);
+            Reprint(page + 1);
             string[] date = new string[2];
             editForm e1 = new editForm();
             string scr;
@@ -107,10 +107,12 @@ namespace sotsuken
                     date = vpn_ctr.NameIPGet();
                     Ip = date[0];
                     name = date[1];
-                    if (e1.check(name,Ip)==false) {
+                    if (e1.check(name, Ip) == false)
+                    {
                         MessageBox.Show("入力が正しくありません");
                     }
-                    else {
+                    else
+                    {
                         PageMove(2);
                     }
                     break;
@@ -118,7 +120,7 @@ namespace sotsuken
                     date = config_ctr.ConfigKeyGet();
                     tunnelTypeStr = date[0];
                     Key = date[1];
-                    tunnelType = e1.vpnValueChange(tunnelTypeStr,Key);
+                    tunnelType = e1.vpnValueChange(tunnelTypeStr, Key);
                     if (Key == "" && tunnelType == "L2TP -L2tpPsk ")
                     {
                         MessageBox.Show("事前共有キーの入力がされていません");
@@ -139,7 +141,7 @@ namespace sotsuken
                     PageMove(5);
                     break;
 
-            }  
+            }
         }
 
         private void BeginnerForm_Load(object sender, EventArgs e)
@@ -173,7 +175,7 @@ namespace sotsuken
                 default:
                     this.Close();
                     break;
-                    
+
             }
 
         }
@@ -195,14 +197,15 @@ namespace sotsuken
         /// string[4]を返します[0]:接続名[1]:接続IP[2]:VPN種類[3]:事前共有キー
         /// </summary>
         /// <returns></returns>
-        public string[] ConfigGet() {
+        public string[] ConfigGet()
+        {
             string[] config = new string[4];
             config[0] = name;
             config[1] = Ip;
             config[2] = tunnelTypeStr;
             config[3] = Key;
 
-                return config;
+            return config;
         }
 
         /// <summary>
@@ -210,7 +213,7 @@ namespace sotsuken
         /// </summary>
         /// <param name="page">0～5の値を指定します。</param>
         public void PageMove(int page)
-        {        
+        {
 
             switch (page)
             {
@@ -270,22 +273,22 @@ namespace sotsuken
         /// パネルで表示しているpageを取得する
         /// </summary>
         /// <returns></returns>
-       public int GetPage()
+        public int GetPage()
         {
-            int page=9;
+            int page = 9;
             while (true)
             {
-                    if (set_ctr.Visible == true) { page = 0; break; }
+                if (set_ctr.Visible == true) { page = 0; break; }
 
-                    if (vpn_ctr.Visible == true) { page = 1; break; }
+                if (vpn_ctr.Visible == true) { page = 1; break; }
 
-                    if (config_ctr.Visible == true) { page = 2; break; }
+                if (config_ctr.Visible == true) { page = 2; break; }
 
-                    if (check_ctr.Visible == true) { page = 3; break; }
+                if (check_ctr.Visible == true) { page = 3; break; }
 
-                    if (end_ctr.Visible == true) { page = 4; break; }
+                if (end_ctr.Visible == true) { page = 4; break; }
 
-                    if (user_ctr.Visible == true) { page = 5; break; }
+                if (user_ctr.Visible == true) { page = 5; break; }
 
             }
             return page;
@@ -315,7 +318,7 @@ namespace sotsuken
                     Cancel_button.Text = "接続";
                     break;
                 case 3:
-                    
+
                     break;
 
 
@@ -326,9 +329,10 @@ namespace sotsuken
         /// 他のコンポーネントに値を渡すためのメソッド[0]ipアドレス[1]接続名[2]接続の種類[3]事前共有キー[4]フラグ
         /// </summary>
         /// <returns></returns>
-        public string[] Getdate() {
+        public string[] Getdate()
+        {
             string[] date = new string[5];
-            date[0] =Ip;
+            date[0] = Ip;
             date[1] = name;
             date[2] = tunnelTypeStr;
             date[3] = Key;
