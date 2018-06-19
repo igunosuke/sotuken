@@ -95,7 +95,6 @@
             this.Controls.Add(this.nametext);
             this.Name = "VpnNameIPSet";
             this.Size = new System.Drawing.Size(795, 449);
-            this.VisibleChanged += new System.EventHandler(this.VpnNameIPSet_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,7 +37,7 @@
             this.refresh = new System.Windows.Forms.Button();
             this.infobox = new System.Windows.Forms.TextBox();
             this.disconnectbutton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Mconfig_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -160,15 +160,16 @@
             this.disconnectbutton.UseVisualStyleBackColor = true;
             this.disconnectbutton.Click += new System.EventHandler(this.disconnectbutton_Click);
             // 
-            // button1
+            // Mconfig_button
             // 
-            this.button1.Location = new System.Drawing.Point(14, 441);
-            this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(178, 48);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "設定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Mconfig_button.Location = new System.Drawing.Point(14, 441);
+            this.Mconfig_button.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.Mconfig_button.Name = "Mconfig_button";
+            this.Mconfig_button.Size = new System.Drawing.Size(178, 48);
+            this.Mconfig_button.TabIndex = 4;
+            this.Mconfig_button.Text = "設定";
+            this.Mconfig_button.UseVisualStyleBackColor = true;
+            this.Mconfig_button.Click += new System.EventHandler(this.Mconfig_button_Click);
             // 
             // vpnformInstance
             // 
@@ -177,7 +178,7 @@
             this.ClientSize = new System.Drawing.Size(968, 502);
             this.Controls.Add(this.disconnectbutton);
             this.Controls.Add(this.splitContainer1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Mconfig_button);
             this.Controls.Add(this.deletebutton);
             this.Controls.Add(this.createbutton);
             this.Controls.Add(this.editbutton);
@@ -209,7 +210,7 @@
         private System.Windows.Forms.TextBox infobox;
         private System.Windows.Forms.Button disconnectbutton;
         private System.Windows.Forms.Button refresh;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Mconfig_button;
     }
 }
 

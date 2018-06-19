@@ -41,7 +41,6 @@
             this.field_panel.Name = "field_panel";
             this.field_panel.Size = new System.Drawing.Size(795, 449);
             this.field_panel.TabIndex = 0;
-            this.field_panel.Paint += new System.Windows.Forms.PaintEventHandler(this.field_panel_Paint);
             // 
             // Back_button
             // 

@@ -65,6 +65,7 @@ namespace sotsuken
                 MessageBox.Show("入力に漏れがあります");
                 src = "NULL";
             }
+            MessageBox.Show(src);
             return src;
         }
 
