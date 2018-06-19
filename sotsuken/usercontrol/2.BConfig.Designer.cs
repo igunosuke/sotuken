@@ -82,7 +82,7 @@
             this.KeyTextBox.Size = new System.Drawing.Size(531, 35);
             this.KeyTextBox.TabIndex = 20;
             // 
-            // Config
+            // BConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,8 +91,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.vpnValueBox);
-            this.Name = "Config";
+            this.Name = "BConfig";
             this.Size = new System.Drawing.Size(795, 449);
+            this.Load += new System.EventHandler(this.BConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

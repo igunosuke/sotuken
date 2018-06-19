@@ -26,7 +26,7 @@ namespace sotsuken
             loadVPN();
 
             //configファイル読み込み
-            string config = "";
+            //string config = "";
             ArrayList configal = new ArrayList();
             /*try
             {
@@ -277,7 +277,7 @@ namespace sotsuken
 
                 }
                 if (flg == 0)
-                    MessageBox.Show("成功しました");
+                    MessageBox.Show("コマンドを実行しました");
             }
             catch (Exception ex)
             {
