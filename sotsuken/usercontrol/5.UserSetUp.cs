@@ -28,7 +28,7 @@ namespace sotsuken
             string[] date = new string[2];
             date[0] = userText.Text;
             date[1] = passText.Text;
-            
+
             return date;
         }
     }

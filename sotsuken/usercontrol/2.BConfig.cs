@@ -25,7 +25,8 @@ namespace sotsuken
             {
                 KeyTextBox.Enabled = true;
             }
-            else {
+            else
+            {
                 KeyTextBox.Enabled = false;
             }
         }

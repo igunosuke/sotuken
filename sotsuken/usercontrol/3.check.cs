@@ -31,8 +31,9 @@ namespace sotsuken
         /// <summary>
         /// BeginnerFormからメソッドを呼び出しラベルに反映する。
         /// </summary>
-        private void reprint() {
-            
+        private void reprint()
+        {
+
             string[] config = new string[4];
             config = b1.ConfigGet();
             VpnName.Text = config[0];
