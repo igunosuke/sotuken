@@ -387,7 +387,7 @@ namespace sotsuken
         {
             if (flg == 1)
             {
-                icon f1 = new icon();
+                icon f1 = new icon(this);
                 f1.GetVpnName(vpn_name);
                 this.WindowState = FormWindowState.Minimized;
                 f1.Show();

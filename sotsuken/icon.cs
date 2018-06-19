@@ -13,14 +13,13 @@ namespace sotsuken
 {
     public partial class icon : Form
     {
-        private vpnformInstance vpnFormInstance;
         public icon()
         {
             InitializeComponent();
         }
-
         public icon(vpnformInstance vpnformInstance)
         {
+            InitializeComponent();
             this.vpnformInstance = vpnformInstance;
         }
 
@@ -87,7 +86,7 @@ namespace sotsuken
 
         private void icon_Load(object sender, EventArgs e)
         {
-            if (Regex.IsMatch(vpnFormInstance.configal[1].ToString(), "1"))
+            if (Regex.IsMatch(vpnformInstance.configal[1].ToString(), "1"))
             {
                 this.Disconnect.Visible = false;
                 Disconnect.Enabled = false;
