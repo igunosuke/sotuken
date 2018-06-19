@@ -13,11 +13,13 @@ namespace sotsuken
     public partial class BeginnerForm : Form
     {
         //変数宣言部
-        public static string name = "";
-        public static string Ip = "";
-        public static string Key = "";
-        public static string tunnelType = "";
-        public static string tunnelTypeStr = "";
+        private static string name = "";
+        private static string Ip = "";
+        private static string Key = "";
+        private static string tunnelType = "";
+        private static string tunnelTypeStr = "";
+        private static string username = "";
+        private static string userpass = "";
         private static int page = 0;
         private static string check_flg = "false";
         public static string addOrSet;
@@ -45,7 +47,7 @@ namespace sotsuken
             config_ctr = new BConfig();
             end_ctr = new set_end();
             user_ctr = new UserSetUp();
-            check_ctr = new check();
+            check_ctr = new check(this);
 
 
             //panelに追加
@@ -136,6 +138,7 @@ namespace sotsuken
                 case 4://4ページ目
                     PageMove(5);
                     break;
+
             }  
         }
 
@@ -147,16 +150,37 @@ namespace sotsuken
         private void Cancel_button_Click(object sender, EventArgs e)
         {
             page = GetPage();
-            if (page == 4) {
-            }
-            else
+
+            switch (page)
             {
-                this.Close();
+                case 4:
+                    PageMove(5);
+                    break;
+                case 5:
+                    string[] date = new string[2];
+                    date = user_ctr.UserGet();
+                    username = date[0];
+                    userpass = date[1];
+                    string src = "";
+                    authForm a1 = new authForm();
+                    src = a1.ConnectSrcCreate(name, username, userpass);
+                    if (src != "NULL")
+                    {
+                        vpnformInstance.RunPowerShell(src, 0);
+                        this.Close();
+                    }
+                    break;
+                default:
+                    this.Close();
+                    break;
+                    
             }
+
         }
 
-        private void field_panel_VisibleChanged(object sender, EventArgs e)
+        private void field_panel_Paint(object sender, PaintEventArgs e)
         {
+            Reprint(GetPage());
         }
 
         //メソッド↓
@@ -166,74 +190,6 @@ namespace sotsuken
         }
 
         //ユーザーコントロールの表示云々
-
-
-        /// <summary>
-        /// configのメソッド
-        /// </summary>
-        /// <param name="flg">戻る:false,次へ:true</param>
-        /// <param name="key">事前共有キー</param>
-        /// <param name="tunneltype">vpnの種類</param>
-        public void ConfigNext(bool flg, string key, string tunneltype) {
-
-            if (flg)
-            {
-                if (key == "" && tunneltype == "L2TP -L2tpPsk ")
-                {
-                    MessageBox.Show("事前共有キーの入力がされていません");
-                }
-                else
-                {
-                    Key = key;
-                    tunnelType = tunneltype;
-                    PageMove(3);
-                }
-            }
-            else {
-                PageMove(1);
-            }
-
-        }
-
-
-        /// <summary>
-        /// check用めそっど
-        /// </summary>
-        /// <param name="tmp">戻る:1,次へ:0</param>
-        public void CheckCtr(int tmp) {
-            switch (tmp)
-            {
-                case 0:
-                    PageMove(4);
-                    break;
-                case 1:
-                    PageMove(2);
-                    break;
-            }
-        }
-
-     
-        /// <summary>
-        /// UserSetで使うためのメソッド
-        /// </summary>
-        /// <param name="flg">戻るボタンはfalse接続はtrue</param>
-        /// <param name="user">ユーザー名</param>
-        /// <param name="pass">パスワード</param>
-        public void UserSet(bool flg, string user, string pass)
-        {
-            if (flg)
-            {
-                string src = "";
-                authForm a1 = new authForm();
-
-                src = a1.ConnectSrcCreate(name,user,pass);
-                vpnformInstance.RunPowerShell(src, 0);             
-            }
-            else
-            {
-                PageMove(4);
-            }
-        }
 
         /// <summary>
         /// string[4]を返します[0]:接続名[1]:接続IP[2]:VPN種類[3]:事前共有キー
@@ -255,6 +211,7 @@ namespace sotsuken
         /// <param name="page">0～5の値を指定します。</param>
         public void PageMove(int page)
         {        
+
             switch (page)
             {
                 case 0:
@@ -409,5 +366,6 @@ namespace sotsuken
             }
 
         }
+
     }
 }

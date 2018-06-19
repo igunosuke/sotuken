@@ -15,12 +15,13 @@ namespace sotsuken
 
         BeginnerForm b1 = new BeginnerForm();
 
-        public check()
+        public check(BeginnerForm b2)
         {
             InitializeComponent();
+            b1 = b2;
         }
 
- 
+
 
         private void check_Load(object sender, EventArgs e)
         {
@@ -45,24 +46,28 @@ namespace sotsuken
             reprint();
         }
 
-        private void VpnNameLabel_Click(object sender, EventArgs e)
+        public void VpnNameLabel_Click(object sender, EventArgs e)
         {
             b1.PageMove(1);
+            b1.ButonnTextReprint(0);
         }
 
         private void IpLabel_Click(object sender, EventArgs e)
         {
             b1.PageMove(1);
+            b1.ButonnTextReprint(0);
         }
 
         private void ConfigLabel_Click(object sender, EventArgs e)
         {
             b1.PageMove(2);
+            b1.ButonnTextReprint(0);
         }
 
         private void Keylabel_Click(object sender, EventArgs e)
         {
             b1.PageMove(2);
+            b1.ButonnTextReprint(0);
         }
 
         private void check_VisibleChanged(object sender, EventArgs e)
