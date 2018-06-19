@@ -1,30 +1,17 @@
 ﻿
 
-<<<<<<< HEAD
 Name                  : sotu
 ServerAddress         : 172.16.1.10
 AllUserConnection     : False
 Guid                  : {CABB75BD-8733-4BD8-8830-AA40C81C78CC}
 TunnelType            : L2tp
 AuthenticationMethod  : {Chap}
-=======
-Name                  : sotuken
-ServerAddress         : 172.16.1.10
-AllUserConnection     : False
-Guid                  : {5C9574D4-3D12-48A0-AAE6-CE3AB5EEB1F6}
-TunnelType            : L2tp
-AuthenticationMethod  : {Chap, MsChapv2}
->>>>>>> parent of f84bd07... 06/19
 EncryptionLevel       : Optional
 L2tpIPsecAuth         : Psk
 UseWinlogonCredential : False
 EapConfigXmlStream    : 
 ConnectionStatus      : Disconnected
-<<<<<<< HEAD
 RememberCredential    : False
-=======
-RememberCredential    : True
->>>>>>> parent of f84bd07... 06/19
 SplitTunneling        : False
 DnsSuffix             : 
 IdleDisconnectSeconds : 0

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -83,18 +84,5 @@ namespace sotsuken
         {
             vpn_name = name;
         }
-
-<<<<<<< HEAD
-
-=======
-        private void icon_Load(object sender, EventArgs e)
-        {
-            if (Regex.IsMatch(vpnFormInstance.configal[1].ToString(), "1"))
-            {
-                this.Disconnect.Visible = false;
-                Disconnect.Enabled = false;
-            }
-        }
->>>>>>> parent of f84bd07... 06/19
     }
 }
