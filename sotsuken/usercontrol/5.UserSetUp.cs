@@ -31,5 +31,17 @@ namespace sotsuken
 
             return date;
         }
+
+        private void password_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (password_checkbox.Checked)
+            {
+                passText.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passText.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

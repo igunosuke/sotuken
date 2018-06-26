@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.KeyTextBox = new System.Windows.Forms.TextBox();
+            this.keytext_checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // vpnValueBox
@@ -81,12 +82,25 @@
             this.KeyTextBox.Name = "KeyTextBox";
             this.KeyTextBox.Size = new System.Drawing.Size(531, 35);
             this.KeyTextBox.TabIndex = 20;
+            this.KeyTextBox.UseSystemPasswordChar = true;
+            // 
+            // keytext_checkBox1
+            // 
+            this.keytext_checkBox1.AutoSize = true;
+            this.keytext_checkBox1.Location = new System.Drawing.Point(39, 348);
+            this.keytext_checkBox1.Name = "keytext_checkBox1";
+            this.keytext_checkBox1.Size = new System.Drawing.Size(215, 22);
+            this.keytext_checkBox1.TabIndex = 21;
+            this.keytext_checkBox1.Text = "事前共有キーを表示する";
+            this.keytext_checkBox1.UseVisualStyleBackColor = true;
+            this.keytext_checkBox1.CheckedChanged += new System.EventHandler(this.keytext_checkBox1_CheckedChanged);
             // 
             // BConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Controls.Add(this.keytext_checkBox1);
             this.Controls.Add(this.KeyTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -105,5 +119,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox KeyTextBox;
+        private System.Windows.Forms.CheckBox keytext_checkBox1;
     }
 }

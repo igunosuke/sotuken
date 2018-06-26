@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Windows.Forms;
 
 namespace sotsuken
@@ -165,5 +165,15 @@ namespace sotsuken
             return addOrSet + " -Name " + name + " -ServerAddress " + srvAddress + " -TunnelType " + tunnelType + " -AuthenticationMethod " + authMethod + " -Force";
         }
 
+        private void keytext_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (keytext_checkbox.Checked)
+            {
+                secretKeyBox.UseSystemPasswordChar = false;
+            }
+            else {
+                secretKeyBox.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

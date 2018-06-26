@@ -53,5 +53,17 @@ namespace sotsuken
                 KeyTextBox.Text = date[3];
             }
         }
+
+        private void keytext_checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (keytext_checkBox1.Checked)
+            {
+                KeyTextBox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                KeyTextBox.UseSystemPasswordChar = true;
+            }
+        }
     }
 }

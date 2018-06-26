@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.connectbutton = new System.Windows.Forms.Button();
             this.editbutton = new System.Windows.Forms.Button();
             this.vpnlist = new System.Windows.Forms.ListBox();
@@ -38,6 +39,7 @@
             this.infobox = new System.Windows.Forms.TextBox();
             this.disconnectbutton = new System.Windows.Forms.Button();
             this.Mconfig_button = new System.Windows.Forms.Button();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,7 +78,6 @@
             this.vpnlist.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.vpnlist.Name = "vpnlist";
             this.vpnlist.Size = new System.Drawing.Size(244, 498);
-            this.vpnlist.Sorted = true;
             this.vpnlist.TabIndex = 2;
             this.vpnlist.SelectedIndexChanged += new System.EventHandler(this.vpnlist_SelectedIndexChanged);
             // 
@@ -171,6 +172,11 @@
             this.Mconfig_button.UseVisualStyleBackColor = true;
             this.Mconfig_button.Click += new System.EventHandler(this.Mconfig_button_Click);
             // 
+            // timer
+            // 
+            this.timer.Interval = 300;
+            this.timer.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // vpnformInstance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -211,6 +217,7 @@
         private System.Windows.Forms.Button disconnectbutton;
         private System.Windows.Forms.Button refresh;
         private System.Windows.Forms.Button Mconfig_button;
+        private System.Windows.Forms.Timer timer;
     }
 }
 
