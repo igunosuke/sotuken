@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.userText = new System.Windows.Forms.TextBox();
             this.passText = new System.Windows.Forms.TextBox();
+            this.userText = new System.Windows.Forms.TextBox();
             this.compButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -56,21 +56,22 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "パスワード";
             // 
-            // userText
-            // 
-            this.userText.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.userText.Location = new System.Drawing.Point(61, 82);
-            this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(255, 31);
-            this.userText.TabIndex = 1;
-            // 
             // passText
             // 
             this.passText.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.passText.Location = new System.Drawing.Point(61, 208);
+            this.passText.Location = new System.Drawing.Point(61, 225);
             this.passText.Name = "passText";
             this.passText.Size = new System.Drawing.Size(255, 31);
             this.passText.TabIndex = 1;
+            this.passText.UseSystemPasswordChar = true;
+            // 
+            // userText
+            // 
+            this.userText.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.userText.Location = new System.Drawing.Point(62, 87);
+            this.userText.Name = "userText";
+            this.userText.Size = new System.Drawing.Size(255, 31);
+            this.userText.TabIndex = 1;
             // 
             // compButton
             // 
@@ -99,8 +100,8 @@
             this.ClientSize = new System.Drawing.Size(541, 402);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.compButton);
-            this.Controls.Add(this.passText);
             this.Controls.Add(this.userText);
+            this.Controls.Add(this.passText);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "authForm";
@@ -116,8 +117,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox userText;
         private System.Windows.Forms.TextBox passText;
+        private System.Windows.Forms.TextBox userText;
         private System.Windows.Forms.Button compButton;
         private System.Windows.Forms.Button cancelButton;
     }

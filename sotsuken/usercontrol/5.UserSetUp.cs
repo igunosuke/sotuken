@@ -12,27 +12,15 @@ namespace sotsuken
 {
     public partial class UserSetUp : UserControl
     {
-        private BeginnerForm b1;
+
 
         public UserSetUp()
         {
             InitializeComponent();
-            b1 = new BeginnerForm();
-        }
-
-        private void compButton_Click(object sender, EventArgs e)
-        {
-            b1.UserSet(true,userText.Text,passText.Text);
-            FindForm().Close();
-        }
-
-        private void cancelButton_Click(object sender, EventArgs e)
-        {
-            b1.UserSet(false,null,null);
         }
 
         /// <summary>
-        ///ユーザー情報を返すメソッド
+        ///ユーザー情報を返すメソッド.0:ユーザー名 1:パスワード
         /// </summary>
         /// <returns>0:ユーザー名 1:パスワード</returns>
         public string[] UserGet()
@@ -40,8 +28,20 @@ namespace sotsuken
             string[] date = new string[2];
             date[0] = userText.Text;
             date[1] = passText.Text;
-            
+
             return date;
+        }
+
+        private void password_checkbox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (password_checkbox.Checked)
+            {
+                passText.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passText.UseSystemPasswordChar = true;
+            }
         }
     }
 }

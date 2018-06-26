@@ -40,45 +40,53 @@
             // 
             // VpnNameLabel
             // 
+            this.VpnNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.VpnNameLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.VpnNameLabel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.VpnNameLabel.Location = new System.Drawing.Point(30, 32);
             this.VpnNameLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.VpnNameLabel.Name = "VpnNameLabel";
-            this.VpnNameLabel.Size = new System.Drawing.Size(179, 24);
+            this.VpnNameLabel.Size = new System.Drawing.Size(179, 36);
             this.VpnNameLabel.TabIndex = 4;
             this.VpnNameLabel.Text = "接続名:";
+            this.VpnNameLabel.Click += new System.EventHandler(this.VpnNameLabel_Click);
             // 
             // IpLabel
             // 
             this.IpLabel.AutoSize = true;
+            this.IpLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.IpLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.IpLabel.Location = new System.Drawing.Point(30, 114);
             this.IpLabel.Name = "IpLabel";
-            this.IpLabel.Size = new System.Drawing.Size(179, 24);
+            this.IpLabel.Size = new System.Drawing.Size(181, 26);
             this.IpLabel.TabIndex = 5;
             this.IpLabel.Text = "接続先IPアドレス:\r\n";
+            this.IpLabel.Click += new System.EventHandler(this.IpLabel_Click);
             // 
             // ConfigLabel
             // 
             this.ConfigLabel.AutoSize = true;
+            this.ConfigLabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ConfigLabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.ConfigLabel.Location = new System.Drawing.Point(30, 193);
             this.ConfigLabel.Name = "ConfigLabel";
-            this.ConfigLabel.Size = new System.Drawing.Size(123, 24);
+            this.ConfigLabel.Size = new System.Drawing.Size(125, 26);
             this.ConfigLabel.TabIndex = 20;
             this.ConfigLabel.Text = "VPNの種類\r\n";
             this.ConfigLabel.VisibleChanged += new System.EventHandler(this.ConfigLabel_VisibleChanged);
+            this.ConfigLabel.Click += new System.EventHandler(this.ConfigLabel_Click);
             // 
             // Keylabel
             // 
             this.Keylabel.AutoSize = true;
+            this.Keylabel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Keylabel.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Keylabel.Location = new System.Drawing.Point(30, 276);
             this.Keylabel.Name = "Keylabel";
-            this.Keylabel.Size = new System.Drawing.Size(146, 24);
+            this.Keylabel.Size = new System.Drawing.Size(148, 26);
             this.Keylabel.TabIndex = 21;
             this.Keylabel.Text = "事前共有キー";
+            this.Keylabel.Click += new System.EventHandler(this.Keylabel_Click);
             // 
             // VpnName
             // 
@@ -136,6 +144,7 @@
             this.Name = "check";
             this.Size = new System.Drawing.Size(795, 449);
             this.Load += new System.EventHandler(this.check_Load);
+            this.VisibleChanged += new System.EventHandler(this.check_VisibleChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 

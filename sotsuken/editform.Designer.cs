@@ -41,6 +41,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.secretKeyBox = new System.Windows.Forms.TextBox();
+            this.keytext_checkbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // nametext
@@ -84,7 +85,7 @@
             // compbutton
             // 
             this.compbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.compbutton.Location = new System.Drawing.Point(192, 577);
+            this.compbutton.Location = new System.Drawing.Point(229, 619);
             this.compbutton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.compbutton.Name = "compbutton";
             this.compbutton.Size = new System.Drawing.Size(165, 58);
@@ -96,7 +97,7 @@
             // canbutton
             // 
             this.canbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.canbutton.Location = new System.Drawing.Point(367, 577);
+            this.canbutton.Location = new System.Drawing.Point(404, 619);
             this.canbutton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.canbutton.Name = "canbutton";
             this.canbutton.Size = new System.Drawing.Size(165, 58);
@@ -157,14 +158,14 @@
             this.vpnValueBox.Name = "vpnValueBox";
             this.vpnValueBox.Size = new System.Drawing.Size(484, 36);
             this.vpnValueBox.TabIndex = 17;
-            this.vpnValueBox.Text = "自動";
+            this.vpnValueBox.Text = "事前共有キーを使ったL2TP/IPSec";
             this.vpnValueBox.SelectedIndexChanged += new System.EventHandler(this.vpnValueBox_SelectionChangeCommitted);
             this.vpnValueBox.SelectionChangeCommitted += new System.EventHandler(this.vpnValueBox_SelectionChangeCommitted);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(33, 537);
+            this.label7.Location = new System.Drawing.Point(40, 591);
             this.label7.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(143, 18);
@@ -190,12 +191,25 @@
             this.secretKeyBox.Name = "secretKeyBox";
             this.secretKeyBox.Size = new System.Drawing.Size(484, 35);
             this.secretKeyBox.TabIndex = 19;
+            this.secretKeyBox.UseSystemPasswordChar = true;
+            // 
+            // keytext_checkbox
+            // 
+            this.keytext_checkbox.AutoSize = true;
+            this.keytext_checkbox.Location = new System.Drawing.Point(48, 550);
+            this.keytext_checkbox.Name = "keytext_checkbox";
+            this.keytext_checkbox.Size = new System.Drawing.Size(215, 22);
+            this.keytext_checkbox.TabIndex = 21;
+            this.keytext_checkbox.Text = "事前共有キーを表示する";
+            this.keytext_checkbox.UseVisualStyleBackColor = true;
+            this.keytext_checkbox.CheckedChanged += new System.EventHandler(this.keytext_checkbox_CheckedChanged);
             // 
             // editForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(575, 662);
+            this.ClientSize = new System.Drawing.Size(612, 704);
+            this.Controls.Add(this.keytext_checkbox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.secretKeyBox);
             this.Controls.Add(this.label7);
@@ -235,5 +249,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox secretKeyBox;
+        private System.Windows.Forms.CheckBox keytext_checkbox;
     }
 }

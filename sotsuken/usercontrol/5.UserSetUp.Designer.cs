@@ -28,41 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cancelButton = new System.Windows.Forms.Button();
-            this.compButton = new System.Windows.Forms.Button();
             this.passText = new System.Windows.Forms.TextBox();
             this.userText = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.password_checkbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
-            // 
-            // cancelButton
-            // 
-            this.cancelButton.Location = new System.Drawing.Point(173, 341);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(115, 50);
-            this.cancelButton.TabIndex = 7;
-            this.cancelButton.Text = "キャンセル";
-            this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
-            // 
-            // compButton
-            // 
-            this.compButton.Location = new System.Drawing.Point(380, 341);
-            this.compButton.Name = "compButton";
-            this.compButton.Size = new System.Drawing.Size(110, 50);
-            this.compButton.TabIndex = 8;
-            this.compButton.Text = "完了";
-            this.compButton.UseVisualStyleBackColor = true;
-            this.compButton.Click += new System.EventHandler(this.compButton_Click);
             // 
             // passText
             // 
             this.passText.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.passText.Location = new System.Drawing.Point(69, 270);
+            this.passText.Location = new System.Drawing.Point(69, 254);
             this.passText.Name = "passText";
             this.passText.Size = new System.Drawing.Size(255, 31);
             this.passText.TabIndex = 5;
+            this.passText.UseSystemPasswordChar = true;
             // 
             // userText
             // 
@@ -92,13 +72,23 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "ユーザー名";
             // 
+            // password_checkbox
+            // 
+            this.password_checkbox.AutoSize = true;
+            this.password_checkbox.Location = new System.Drawing.Point(69, 315);
+            this.password_checkbox.Name = "password_checkbox";
+            this.password_checkbox.Size = new System.Drawing.Size(184, 22);
+            this.password_checkbox.TabIndex = 7;
+            this.password_checkbox.Text = "パスワードを表示する";
+            this.password_checkbox.UseVisualStyleBackColor = true;
+            this.password_checkbox.CheckedChanged += new System.EventHandler(this.password_checkbox_CheckedChanged);
+            // 
             // UserSetUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Controls.Add(this.cancelButton);
-            this.Controls.Add(this.compButton);
+            this.Controls.Add(this.password_checkbox);
             this.Controls.Add(this.passText);
             this.Controls.Add(this.userText);
             this.Controls.Add(this.label2);
@@ -111,12 +101,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button cancelButton;
-        private System.Windows.Forms.Button compButton;
         private System.Windows.Forms.TextBox passText;
         private System.Windows.Forms.TextBox userText;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox password_checkbox;
     }
 }

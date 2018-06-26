@@ -23,7 +23,8 @@ namespace sotsuken
         List<List<string>> infolist = new List<List<string>>();
         string string_tmp;//都合よく使う存在
         public ArrayList configal = new ArrayList();//config管理
-
+        private int tmp = 0;
+        private bool CTflg = true;
         private void vpn_Load(object sender, EventArgs e)
         {
             loadVPN();
@@ -97,30 +98,37 @@ namespace sotsuken
         }
         private void connectbutton_Click(object sender, EventArgs e)
         {
-            int tmp = vpnlist.SelectedIndex;
-            if (selectCheck() == true)
+            tmp = vpnlist.SelectedIndex;
+            if (CTflg == true)
             {
-                //接続状態がDisconnectedなら接続、Connectedなら注意ウィンドウを出す
-                if (infolist[tmp][3] != "Connected")
+                if (selectCheck() == true)
                 {
-                    using (var authForm = new authForm(this))
+                    //接続状態がDisconnectedなら接続、Connectedなら注意ウィンドウを出す
+                    if (infolist[tmp][3] != "Connected")
                     {
-                        authForm.ShowDialog();
+                        using (var authForm = new authForm(this))
+                        {
+                            authForm.ShowDialog();
+                            string_tmp = vpnlist.SelectedItem.ToString();
+                            loadVPN();
+                        }
                     }
-                }
-                else
-                {
-                    MessageBox.Show("このVPNはすでに接続されています");
-                }
-                if (infolist[tmp][3] != "")
-                {
+                    else
+                    {
+                        MessageBox.Show("このVPNはすでに接続されています");
+                    }
                     if (Regex.IsMatch(configal[0].ToString(), "0"))
                     {
-                        string_tmp = vpnlist.SelectedItem.ToString();
-                        IconShow(1, string_tmp);
+                        loadVPN();
+                        if (infolist[tmp][3] != "Disconnected")
+                        {
+                            IconShow(1, string_tmp);
+                            CTflg = false;
+                            timer.Start();
+                        }
                     }
+
                 }
-                loadVPN();
             }
         }
 
@@ -138,12 +146,11 @@ namespace sotsuken
                 {
                     MessageBox.Show("このVPNは接続されていません");
                 }
-
-                loadVPN();
                 if (infolist[tmp][3] != "")
                 {
                     string_tmp = vpnlist.SelectedItem.ToString();
                 }
+                loadVPN();
             }
         }
 
@@ -359,7 +366,7 @@ namespace sotsuken
 
                 }
                 if (flg == 0)
-                    MessageBox.Show("成功しました");
+                    MessageBox.Show("コマンドを実行しました");
             }
             catch (Exception ex)
             {
@@ -413,6 +420,10 @@ namespace sotsuken
             loadVPN();
         }
 
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            CTflg = true;
+            timer.Stop();
+        }
     }
 }
