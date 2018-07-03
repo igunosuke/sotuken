@@ -1,0 +1,36 @@
+﻿
+
+Name                  : sinohara
+ServerAddress         : 172.16.1.10
+AllUserConnection     : False
+Guid                  : {A23741CF-E75B-428B-B330-0D74C77CB5C1}
+TunnelType            : L2tp
+AuthenticationMethod  : {Chap}
+EncryptionLevel       : Optional
+L2tpIPsecAuth         : Psk
+UseWinlogonCredential : False
+EapConfigXmlStream    : 
+ConnectionStatus      : Disconnected
+RememberCredential    : False
+SplitTunneling        : False
+DnsSuffix             : 
+IdleDisconnectSeconds : 0
+
+Name                  : konoha
+ServerAddress         : 172.16.1.10
+AllUserConnection     : False
+Guid                  : {E09B9455-A8E5-4255-A268-658086F17BA3}
+TunnelType            : L2tp
+AuthenticationMethod  : {Chap}
+EncryptionLevel       : Optional
+L2tpIPsecAuth         : Psk
+UseWinlogonCredential : False
+EapConfigXmlStream    : 
+ConnectionStatus      : Disconnected
+RememberCredential    : False
+SplitTunneling        : False
+DnsSuffix             : 
+IdleDisconnectSeconds : 0
+
+
+

@@ -71,6 +71,7 @@ namespace sotsuken
                     }
                 }
             }
+            FontChenge();
         }
 
         public void fileSave()
@@ -424,6 +425,32 @@ namespace sotsuken
         {
             CTflg = true;
             timer.Stop();
+        }
+
+       private void FontChenge()
+        {
+            //PrivateFontCollectionオブジェクトを作成する
+            System.Drawing.Text.PrivateFontCollection pfc = new System.Drawing.Text.PrivateFontCollection();
+            //PrivateFontCollectionにフォントを追加する
+            pfc.AddFontFile(@"./FONT/A-OTF-UDShinMGoPr6-Regular.otf");
+            //同様にして、複数のフォントを追加できる
+            //pfc.AddFontFile(@"FONT/AdobeFnt19.lst");
+
+            //PrivateFontCollectionに追加されているフォントの名前を列挙する
+            foreach (System.Drawing.FontFamily ff in pfc.Families)
+            {
+                Console.WriteLine(ff.Name);
+            }
+
+            //PrivateFontCollectionの先頭のフォントのFontオブジェクトを作成する
+            System.Drawing.Font f =
+                new System.Drawing.Font(pfc.Families[0], 12);
+
+            //Labelコントロールのフォントに設定する
+            infobox.Font = f;
+
+            //後始末
+            pfc.Dispose();
         }
     }
 }
