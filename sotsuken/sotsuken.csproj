@@ -177,6 +177,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="usercontrol\0.set_title.resx">
       <DependentUpon>0.set_title.cs</DependentUpon>
@@ -195,9 +196,51 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="img\メインフォーム背景.png" />
+    <None Include="img\接続.png" />
+    <None Include="img\切断.png" />
+    <None Include="img\作成.png" />
+    <None Include="img\編集.png" />
+    <None Include="img\削除.png" />
+    <None Include="img\タイトル.png" />
+    <None Include="img\ロゴ.png" />
+    <None Include="img\終了青.png" />
+    <None Include="img\認証フォーム背景.png" />
+    <None Include="img\ユーザー名.png" />
+    <None Include="img\認証フォーム.png" />
+    <None Include="img\パスワード.png" />
+    <None Include="img\完了白.png" />
+    <None Include="img\キャンセル.png" />
+    <None Include="img\らくらく作成.png" />
+    <None Include="img\カスタム作成.png" />
+    <None Include="img\エディットフォーム背景.png" />
+    <None Include="img\サーバーアドレス.png" />
+    <None Include="img\VPNの種類.png" />
+    <None Include="img\VPN名.png" />
+    <None Include="img\事前共有キー.png" />
+    <None Include="Resources\アートボード-127.png" />
+    <None Include="img\接続白.png" />
+    <Content Include="img\Bitmap1.bmp" />
+    <None Include="img\切断黄.png" />
+    <None Include="img\作成黄.png" />
+    <None Include="img\編集黄.png" />
+    <None Include="img\削除黄.png" />
+    <None Include="img\完了.png" />
+    <None Include="img\キャンセル黄.png" />
+    <None Include="img\ビギナーフォーム背景.png" />
+    <None Include="img\戻る.png" />
+    <None Include="img\次へ白.png" />
+    <None Include="Resources\終了.png" />
+    <None Include="Resources\終了黄.png" />
+    <None Include="Resources\戻る黄.png" />
+    <None Include="img\次へ.png" />
+    <None Include="Resources\らくらく作成黄.png" />
+    <None Include="Resources\カスタム作成黄.png" />
     <Content Include="vpn.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
