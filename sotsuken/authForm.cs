@@ -39,7 +39,7 @@ namespace sotsuken
                 src = ConnectSrcCreate(vname,userText.Text,passText.Text);
                 if (src != "NULL")
                 {
-                    vpnformInstance.RunPowerShell(src, 1); this.Close();
+                    vpnformInstance.RunPowerShell(src, 1,1); this.Close();
                 }
                 else
                 {
@@ -74,6 +74,26 @@ namespace sotsuken
             {
                 vname = vpnformInstance.vpnlist.SelectedItem.ToString();
             }
+        }
+
+        private void compButton_MouseEnter(object sender, EventArgs e)
+        {
+            compButton.BackgroundImage = Properties.Resources.完了;
+        }
+
+        private void compButton_MouseLeave(object sender, EventArgs e)
+        {
+            compButton.BackgroundImage = Properties.Resources.完了白;
+        }
+
+        private void cancelButton_MouseEnter(object sender, EventArgs e)
+        {
+            cancelButton.BackgroundImage = Properties.Resources.キャンセル黄;
+        }
+
+        private void cancelButton_MouseLeave(object sender, EventArgs e)
+        {
+           cancelButton.BackgroundImage = Properties.Resources.キャンセル;
         }
     }
 }

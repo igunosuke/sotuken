@@ -66,7 +66,7 @@ namespace sotsuken
 
             src = src + " -Name " + nametext.Text + " -ServerAddress " + iptext.Text +" -TunnelType "+ vpnValue + " -AuthenticationMethod " + AuthMethod+" -Force";
 
-            vpnformInstance.RunPowerShell(src,0);
+            vpnformInstance.RunPowerShell(src,0,1);
 
             this.Close();
 
@@ -174,6 +174,31 @@ namespace sotsuken
             else {
                 secretKeyBox.UseSystemPasswordChar = true;
             }
+        }
+
+        private void editForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void compbutton_MouseEnter(object sender, EventArgs e)
+        {
+            compbutton.BackgroundImage = Properties.Resources.完了;
+        }
+
+        private void compbutton_MouseLeave(object sender, EventArgs e)
+        {
+            compbutton.BackgroundImage = Properties.Resources.完了白;
+        }
+
+        private void canbutton_MouseEnter(object sender, EventArgs e)
+        {
+            canbutton.BackgroundImage = Properties.Resources.キャンセル黄;
+        }
+
+        private void canbutton_MouseLeave(object sender, EventArgs e)
+        {
+            canbutton.BackgroundImage = Properties.Resources.キャンセル;
         }
     }
 }

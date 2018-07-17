@@ -21,7 +21,9 @@ namespace sotsuken
         private static string username = "";
         private static string userpass = "";
         private static int page = 0;
+        private static int print_mode = 0;
         private static string check_flg = "false";
+        private static bool connectingFlg = false;
         public static string addOrSet;
         public static set_title set_ctr;
         public static VpnNameIPSet vpn_ctr;
@@ -51,6 +53,7 @@ namespace sotsuken
 
 
             //panelに追加
+            
             field_panel.Controls.Add(set_ctr);
             field_panel.Controls.Add(vpn_ctr);
             field_panel.Controls.Add(config_ctr);
@@ -134,7 +137,7 @@ namespace sotsuken
                         //vpn作成
                     addOrSet = @"Add-VpnConnection";
                     scr = e1.vpnConnectionString(addOrSet, name, Ip, tunnelType);
-                    vpnformInstance.RunPowerShell(scr, 0);
+                    vpnformInstance.RunPowerShell(scr, 0,1);
                     PageMove(4);
                     break;
                 case 4://4ページ目
@@ -144,9 +147,73 @@ namespace sotsuken
             }
         }
 
+        private void Next_button_MouseEnter(object sender, EventArgs e)
+        {
+            switch (print_mode)
+            {
+                case 0:
+                    Next_button.BackgroundImage = Properties.Resources.次へ;
+                    break;
+                case 1:
+                    Next_button.BackgroundImage = Properties.Resources.完了;
+                    break;
+                case 2:
+                    break;
+            }
+        }
+
+        private void Next_button_MouseLeave(object sender, EventArgs e)
+        {
+            switch (print_mode)
+            {
+                case 0:
+                    Next_button.BackgroundImage = Properties.Resources.次へ白;
+                    break;
+                case 1:
+                    Next_button.BackgroundImage = Properties.Resources.完了白;
+                    break;
+                case 2:
+                    break;
+            }
+        }
+
+
+        private void Cancel_button_MouseEnter(object sender, EventArgs e)
+        {
+            switch (print_mode)
+            {
+                case 0:
+                    Cancel_button.BackgroundImage = Properties.Resources.キャンセル黄;
+                    break;
+                case 1:
+                    Cancel_button.BackgroundImage = Properties.Resources.キャンセル黄;
+                    break;
+                case 2:
+                    Cancel_button.BackgroundImage = Properties.Resources.接続;
+                    break;
+            }
+        }
+
+        private void Cancel_button_MouseLeave(object sender, EventArgs e)
+        {
+            switch (print_mode)
+            {
+                case 0:
+                    Cancel_button.BackgroundImage = Properties.Resources.キャンセル;
+                    break;
+                case 1:
+                    Cancel_button.BackgroundImage = Properties.Resources.キャンセル;
+                    break;
+                case 2:
+                    Cancel_button.BackgroundImage = Properties.Resources.接続白;
+                    break;
+            }
+        }
+
         private void BeginnerForm_Load(object sender, EventArgs e)
         {
             ButonnTextReprint(0);
+            connectingFlg = false;
         }
 
         private void Cancel_button_Click(object sender, EventArgs e)
@@ -168,9 +235,12 @@ namespace sotsuken
                     src = a1.ConnectSrcCreate(name, username, userpass);
                     if (src != "NULL")
                     {
-                        vpnformInstance.RunPowerShell(src, 0);
+                        vpnformInstance.RunPowerShell(src, 0,0);
+                        connectingFlg = true;
                         this.Close();
+                        
                     }
+                    
                     break;
                 default:
                     this.Close();
@@ -183,6 +253,38 @@ namespace sotsuken
         private void field_panel_Paint(object sender, PaintEventArgs e)
         {
             Reprint(GetPage());
+        }
+
+        private void Back_button_MouseEnter(object sender, EventArgs e)
+        {
+            switch (print_mode)
+            {
+                case 0:
+                    Back_button.BackgroundImage = Properties.Resources.戻る黄;
+                    break;
+                case 1:
+                    Back_button.BackgroundImage = Properties.Resources.戻る黄;
+                    break;
+                case 2:
+                    Back_button.BackgroundImage = Properties.Resources.終了黄;
+                    break;
+            }
+        }
+
+        private void Back_button_MouseLeave(object sender, EventArgs e)
+        {
+            switch (print_mode)
+            {
+                case 0:
+                    Back_button.BackgroundImage = Properties.Resources.戻る;
+                    break;
+                case 1:
+                    Back_button.BackgroundImage = Properties.Resources.戻る;
+                    break;
+                case 2:
+                    Back_button.BackgroundImage = Properties.Resources.終了;
+                    break;
+            }
         }
 
         //メソッド↓
@@ -303,19 +405,22 @@ namespace sotsuken
             {
                 case 0:
                     Next_button.Visible = true;
-                    Back_button.Text = "戻る";
-                    Next_button.Text = "次へ";
-                    Cancel_button.Text = "キャンセル";
+                    Back_button.BackgroundImage = Properties.Resources.戻る;
+                    Next_button.BackgroundImage = Properties.Resources.次へ白;
+                    Cancel_button.BackgroundImage=Properties.Resources.キャンセル;
+                    print_mode = 0;
                     break;
                 case 1:
                     Next_button.Visible = true;
-                    Next_button.Text = "完了";
-                    Back_button.Text = "戻る";
+                    Next_button.BackgroundImage=Properties.Resources.完了白;
+                    Back_button.BackgroundImage = Properties.Resources.戻る;
+                    print_mode = 1;
                     break;
                 case 2:
                     Next_button.Visible = false;
-                    Back_button.Text = "終了";
-                    Cancel_button.Text = "接続";
+                    Back_button.BackgroundImage=Properties.Resources.終了;
+                    Cancel_button.BackgroundImage = Properties.Resources.接続白;
+                    print_mode = 2;
                     break;
                 case 3:
 
@@ -329,6 +434,7 @@ namespace sotsuken
         /// 他のコンポーネントに値を渡すためのメソッド[0]ipアドレス[1]接続名[2]接続の種類[3]事前共有キー[4]フラグ
         /// </summary>
         /// <returns></returns>
+        /// 
         public string[] Getdate()
         {
             string[] date = new string[5];
@@ -371,5 +477,12 @@ namespace sotsuken
 
         }
 
+        private void BeginnerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (connectingFlg)
+            {
+                vpnformInstance.IconShow(1, name);
+            }
+        }
     }
 }

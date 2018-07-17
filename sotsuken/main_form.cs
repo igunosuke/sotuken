@@ -18,6 +18,11 @@ namespace sotsuken
             InitializeComponent();
         }
 
+        public vpnformInstance(vpnformInstance vpnformInstance)
+        {
+            this.vpnformInstance1 = vpnformInstance;
+        }
+
 
         //変数宣言部
         List<List<string>> infolist = new List<List<string>>();
@@ -25,10 +30,11 @@ namespace sotsuken
         public ArrayList configal = new ArrayList();//config管理
         private int tmp = 0;
         private bool CTflg = true;
+        private vpnformInstance vpnformInstance1;
+
         private void vpn_Load(object sender, EventArgs e)
         {
             loadVPN();
-
             //configファイル読み込み
             string config = "";
             bool file_flg = true;
@@ -175,11 +181,12 @@ namespace sotsuken
         {
             if (Regex.IsMatch(configal[2].ToString(), "1"))
             {
-                using (var form = new BeginnerForm(null))
+                using (BeginnerForm form = new BeginnerForm(this))
                 {
                     //editForm表示
-                    form.StartPosition = FormStartPosition.CenterScreen;
-                    form.ShowDialog();
+                    BeginnerForm bform = new BeginnerForm(this);
+                    bform.StartPosition = FormStartPosition.CenterScreen;
+                    bform.Show();
                 }
             }
             else if (Regex.IsMatch(configal[2].ToString(), "2"))
@@ -194,7 +201,7 @@ namespace sotsuken
             else
             {
                 //何も渡さずにediformを表示
-                Create frm = new Create();
+                Create frm = new Create(this);
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.ShowDialog();
             }
@@ -235,7 +242,7 @@ namespace sotsuken
             {
                 string delSource = @"Remove-VpnConnection " + vpnlist.SelectedItem.ToString() + " -Force";
 
-                RunPowerShell(delSource, 0);
+                RunPowerShell(delSource, 0,0);
 
                 loadVPN();
             }
@@ -276,7 +283,7 @@ namespace sotsuken
             File.SetAttributes(src, fa);
             //VPNデータをもって来てテキストに書き込もうね～
             string refreshsource = @"Get-VpnConnection | Out-File vpnlist.txt -Encoding UTF8";
-            RunPowerShell(refreshsource, 1);
+            RunPowerShell(refreshsource, 1,0);
 
             string line = "";
             int vpncnt = 0;
@@ -348,7 +355,7 @@ namespace sotsuken
 
         }
 
-        public static void RunPowerShell(string strCmd, int flg) //flgは成功ウィンドウが必要な場合だけ出力するフラグ
+        public static void RunPowerShell(string strCmd, int flg,int mode) //flgは成功ウィンドウが必要な場合だけ出力するフラグ
         {
 
             //PowerShellのエラーを取得するためのオブジェクト
@@ -371,7 +378,13 @@ namespace sotsuken
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                if (mode == 1) {
+                    MessageBox.Show("同じ名前のvpnの作成をすることができません");
+                }
+                else
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
 
@@ -391,12 +404,18 @@ namespace sotsuken
             return flg;
         }
 
-        private void IconShow(int flg, string vpn_name)
+        /// <summary>
+        /// アイコン表示
+        /// </summary>
+        /// <param name="flg">1の時接続を試みる</param>
+        /// <param name="vpn_name">接続試みるvpn名を渡す</param>
+        public void IconShow(int flg, string vpn_name)
         {
             if (flg == 1)
             {
                 icon f1 = new icon(this);
                 f1.GetVpnName(vpn_name);
+                vpnformInstance v1 = new vpnformInstance(this);
                 this.WindowState = FormWindowState.Minimized;
                 f1.Show();
 
@@ -413,7 +432,7 @@ namespace sotsuken
         public void disconnect(string vpn_name)
         {
             string disSource = @"RasDial " + vpn_name + " /disconnect";
-            RunPowerShell(disSource, 1);
+            RunPowerShell(disSource, 1,0);
         }
 
         private void refresh_Click(object sender, EventArgs e)
@@ -451,6 +470,66 @@ namespace sotsuken
 
             //後始末
             pfc.Dispose();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void connectbutton_MouseEnter(object sender, EventArgs e)
+        {
+            connectbutton.BackgroundImage = Properties.Resources.接続;
+        }
+
+        private void connectbutton_MouseLeave(object sender, EventArgs e)
+        {
+            connectbutton.BackgroundImage = Properties.Resources.接続白;
+        }
+
+        private void disconnectbutton_MouseEnter(object sender, EventArgs e)
+        {
+            disconnectbutton.BackgroundImage = Properties.Resources.切断黄;
+        }
+
+        private void disconnectbutton_MouseLeave(object sender, EventArgs e)
+        {
+            disconnectbutton.BackgroundImage = Properties.Resources.切断;
+        }
+
+        private void createbutton_MouseEnter(object sender, EventArgs e)
+        {
+            createbutton.BackgroundImage = Properties.Resources.作成黄;
+        }
+
+        private void createbutton_MouseLeave(object sender, EventArgs e)
+        {
+            createbutton.BackgroundImage = Properties.Resources.作成;
+        }
+
+        private void editbutton_MouseEnter(object sender, EventArgs e)
+        {
+            editbutton.BackgroundImage = Properties.Resources.編集黄;
+        }
+
+        private void editbutton_MouseLeave(object sender, EventArgs e)
+        {
+            editbutton.BackgroundImage = Properties.Resources.編集;
+        }
+
+        private void deletebutton_MouseEnter(object sender, EventArgs e)
+        {
+            deletebutton.BackgroundImage = Properties.Resources.削除黄;
+        }
+
+        private void deletebutton_MouseLeave(object sender, EventArgs e)
+        {
+            deletebutton.BackgroundImage = Properties.Resources.削除;
         }
     }
 }

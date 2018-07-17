@@ -46,10 +46,9 @@
             "事前共有キーを使ったL2TP/IPSec",
             "SSTP",
             "IKEv2"});
-            this.vpnValueBox.Location = new System.Drawing.Point(39, 132);
-            this.vpnValueBox.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.vpnValueBox.Location = new System.Drawing.Point(23, 88);
             this.vpnValueBox.Name = "vpnValueBox";
-            this.vpnValueBox.Size = new System.Drawing.Size(532, 36);
+            this.vpnValueBox.Size = new System.Drawing.Size(321, 27);
             this.vpnValueBox.TabIndex = 18;
             this.vpnValueBox.Text = "自動";
             this.vpnValueBox.SelectedIndexChanged += new System.EventHandler(this.vpnValueBox_SelectedIndexChanged);
@@ -58,9 +57,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(36, 32);
+            this.label1.Location = new System.Drawing.Point(22, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(309, 96);
+            this.label1.Size = new System.Drawing.Size(208, 64);
             this.label1.TabIndex = 19;
             this.label1.Text = "VPNの種類を選択せして下さい\r\n\r\n管理者から伝えられた\r\nVPNの種類を選択してください。";
             // 
@@ -68,9 +68,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(35, 221);
+            this.label2.Location = new System.Drawing.Point(21, 147);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 24);
+            this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 19;
             this.label2.Text = "事前共有キー";
             // 
@@ -78,18 +79,20 @@
             // 
             this.KeyTextBox.Enabled = false;
             this.KeyTextBox.Font = new System.Drawing.Font("MS UI Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.KeyTextBox.Location = new System.Drawing.Point(39, 279);
+            this.KeyTextBox.Location = new System.Drawing.Point(23, 186);
+            this.KeyTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.KeyTextBox.Name = "KeyTextBox";
-            this.KeyTextBox.Size = new System.Drawing.Size(531, 35);
+            this.KeyTextBox.Size = new System.Drawing.Size(320, 26);
             this.KeyTextBox.TabIndex = 20;
             this.KeyTextBox.UseSystemPasswordChar = true;
             // 
             // keytext_checkBox1
             // 
             this.keytext_checkBox1.AutoSize = true;
-            this.keytext_checkBox1.Location = new System.Drawing.Point(39, 348);
+            this.keytext_checkBox1.Location = new System.Drawing.Point(23, 232);
+            this.keytext_checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.keytext_checkBox1.Name = "keytext_checkBox1";
-            this.keytext_checkBox1.Size = new System.Drawing.Size(215, 22);
+            this.keytext_checkBox1.Size = new System.Drawing.Size(144, 16);
             this.keytext_checkBox1.TabIndex = 21;
             this.keytext_checkBox1.Text = "事前共有キーを表示する";
             this.keytext_checkBox1.UseVisualStyleBackColor = true;
@@ -97,7 +100,7 @@
             // 
             // BConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Controls.Add(this.keytext_checkBox1);
@@ -105,8 +108,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.vpnValueBox);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "BConfig";
-            this.Size = new System.Drawing.Size(795, 449);
+            this.Size = new System.Drawing.Size(645, 506);
             this.Load += new System.EventHandler(this.BConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
